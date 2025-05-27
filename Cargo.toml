@@ -22,25 +22,25 @@ exclude = ["/.*"]
 bench = false
 
 [dependencies]
-crossbeam-utils = { version = "0.8.11", default-features = false }
-portable-atomic = { version = "1", default-features = false, optional = true }
+crossbeam-utils = { version = "0.8.21", default-features = false }
+portable-atomic = { version = "1.11.0", default-features = false, optional = true }
 
 # Enables loom testing. This feature is permanently unstable and the API may
 # change at any time.
 [target.'cfg(loom)'.dependencies]
-loom = { version = "0.7", optional = true }
+loom = { version = "0.7.2", optional = true }
 
 [[bench]]
 name = "bench"
 harness = false
 
 [dev-dependencies]
-criterion = { version = "0.5", features = ["cargo_bench_support"], default-features = false }
-easy-parallel = "3.1.0"
-fastrand = "2.0.0"
+criterion = { version = "0.6", features = ["cargo_bench_support"], default-features = false }
+easy-parallel = "3.3.1"
+fastrand = "2.3.0"
 
 [target.'cfg(target_family = "wasm")'.dev-dependencies]
-wasm-bindgen-test = "0.3"
+wasm-bindgen-test = "0.3.50"
 
 [lints.rust]
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(loom)'] }
